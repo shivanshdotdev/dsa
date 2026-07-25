@@ -22,7 +22,7 @@ public class P06_PrintingAllDivisors {
         // ===================================================
         // Better Approach - O(underroot N)
         // Logic is explained in basicProblems github repo >>> 04_IsPrime.md 
-        // https://github.com/shivanshdotdev/basicProblems/blob/main/04_IsPrime.md [Copy and paste]
+        // https://github.com/shivanshdotdev/QuickBasicRevision/blob/main/04_IsPrime.md [Copy and paste]
 
         for (int i = 1; i * i <= number; i++){
             if (number % i == 0) {
