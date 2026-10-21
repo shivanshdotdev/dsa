@@ -13,13 +13,11 @@ public class P14_SearchInsertPosition_35 {
 
         int mid = 0;
 
-        int ans = -1;
-
         while (l <= r){
             mid = (l + r) / 2;
 
             if (nums[mid] == target){
-                ans = mid;
+                System.out.println(mid);
                 break;
             }
             else if (nums[mid] > target){
@@ -30,19 +28,14 @@ public class P14_SearchInsertPosition_35 {
             }
         }
 
-        if (ans != -1){
-            System.out.println(ans);
-        }
-        else if (nums[mid] <= target){
+        int val = nums[mid];
+
+        if (val < target && mid < n - 1){
             System.out.println(mid + 1);
         }
-        else {
-            if (mid > 0){
-                System.out.println(mid - 1);
-            }
-            else {
-                System.out.println(0);
-            }
+        else if (val > target && mid > 0){
+            System.out.println(mid - 1);
         }
+        
     }
 }
