@@ -1,5 +1,5 @@
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class P15_CarPooling_1094_OptimizedApproach {
     public static void main(String[] args) {
@@ -17,60 +17,20 @@ public class P15_CarPooling_1094_OptimizedApproach {
 
         int capacity = 13;
 
-        Map<Integer, int[]> map = new HashMap<>();
+        Map<Integer, Integer> map = new TreeMap<>();
         
-        int totalTrips = trips.length;
-        int lastStop = 0;
-
-        for (int i = 0; i < totalTrips; i++){
-            int temp = trips[i][2];
-
-            if (temp > lastStop){
-                lastStop = temp;
-            }
-        }
-
         for (int[] i : trips){
-            if (map.containsKey(i[1])){
-                map.put(i[1], map.getOrDefault(i[1], 0) + 1);
-            }
-
-            if (map.containsKey(i[2])){
-
-            }
+            map.put(i[1], map.getOrDefault(i[1], 0) + i[0]);
+            map.put(i[2], map.getOrDefault(i[2], 0) - i[0]);
         }
 
         int maxCapacity = capacity;
 
-        int tripCount = 0; // starting with 0 to match with the trips array index
-
         boolean breakOutNeeded = false;
 
-        // i can be represented or seen as the the location point or pickup and drop point 
-        for (int i = 1; i <= lastStop; i++){
-            
-            tripCount = 0;
-            int peopleExiting = 0;
-            int peopleEntering = 0;
+        for (int i : map.values()){
 
-            while (totalTrips > tripCount){
-                
-                int passengers = trips[tripCount][0];
-                int enterAt = trips[tripCount][1];
-                int exitAt = trips[tripCount][2];
-
-                if (exitAt == i){
-                    peopleExiting += passengers;
-                }
-
-                if (enterAt == i){
-                    peopleEntering += passengers;
-                }
-
-                tripCount++;
-            }
-
-            capacity = capacity + peopleExiting - peopleEntering;
+            capacity = capacity - i;
 
             if (capacity < 0 || capacity > maxCapacity){
                 breakOutNeeded = true;
