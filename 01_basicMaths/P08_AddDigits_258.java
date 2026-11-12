@@ -16,6 +16,6 @@ public class P08_AddDigits_258 {
         // else {
         //     return addDigits(sum);
         // }
-        System.out.println(nums);
+        System.out.println(sum + nums);
     }
 }
