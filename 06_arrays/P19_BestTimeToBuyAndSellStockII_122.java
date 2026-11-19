@@ -6,8 +6,10 @@ public class P19_BestTimeToBuyAndSellStockII_122 {
         int maxProfit = 0;
 
         for (int i = 1; i < n; i++){
-            if (prices[i] - prices[i-1] > 0){
-                maxProfit = maxProfit + (prices[i] - prices[i - 1]);
+            int profit = prices[i] - prices[i - 1];
+
+            if (profit > 0){
+                maxProfit = maxProfit + profit;
             }
         }
 

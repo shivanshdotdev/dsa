@@ -10,6 +10,11 @@ public class P09_RunningSumOf1DArray_1480 {
             ans[i] = ans[i-1] + nums[i];
         }
 
+        // ans[n-1] = nums[n-1];
+        // for (int i = (n - 2); i >= 0; i--){
+        //     ans[i] = ans[i+1] * nums[i];
+        // }
+
         for (int i : ans){
             System.out.println(i);
         }

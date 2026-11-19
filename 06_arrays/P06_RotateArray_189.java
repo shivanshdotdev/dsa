@@ -32,7 +32,7 @@ public class P06_RotateArray_189 {
 
         int l, r; // boundries 
 
-        // REVERSING THE ENTIRE ARRAY -- these three loops can be in a function accpeting l, r and array but that can be done easily
+        // REVERSING THE ENTIRE ARRAY -- these three loops below can be in a function accpeting l, r and array but that can be done easily
         l = 0;
         r = n - 1;
 
